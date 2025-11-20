@@ -159,20 +159,24 @@ export default function Home() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { name: 'Banana Leaf Packaging', desc: 'Natural, fresh, chemical-free', icon: '🍌', color: 'from-yellow-100 to-green-100' },
-              { name: 'Bagasse Boxes', desc: 'Made from sugarcane fibers', icon: '📦', color: 'from-amber-100 to-green-100' },
-              { name: 'PLA Containers', desc: 'Plant-based, clear, strong', icon: '🥤', color: 'from-blue-100 to-green-100' },
-              { name: 'Palm Leaf Plates', desc: 'Aesthetic and compostable', icon: '🌴', color: 'from-emerald-100 to-green-100' },
-              { name: 'Zoot Packaging', desc: 'Modern biodegradable alternatives', icon: '♻️', color: 'from-teal-100 to-green-100' }
+              { name: 'Banana Leaf Packaging', desc: 'Natural, fresh, chemical-free', icon: '🍌', color: 'from-yellow-100 to-green-100', slug: 'banana-leaf', price: '$12.99' },
+              { name: 'Bagasse Boxes', desc: 'Made from sugarcane fibers', icon: '📦', color: 'from-amber-100 to-green-100', slug: 'bagasse-boxes', price: '$15.99' },
+              { name: 'PLA Containers', desc: 'Plant-based, clear, strong', icon: '🥤', color: 'from-blue-100 to-green-100', slug: 'pla-containers', price: '$18.99' },
+              { name: 'Palm Leaf Plates', desc: 'Aesthetic and compostable', icon: '🌴', color: 'from-emerald-100 to-green-100', slug: 'palm-leaf-plates', price: '$14.99' },
+              { name: 'Zoot Packaging', desc: 'Modern biodegradable alternatives', icon: '♻️', color: 'from-teal-100 to-green-100', slug: 'zoot-packaging', price: '$16.99' }
             ].map((product, i) => (
-              <div key={i} className={`group relative bg-gradient-to-br ${product.color} p-10 rounded-3xl hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl border border-green-200 overflow-hidden`}>
+              <a key={i} href={`/products/${product.slug}`} className={`group relative bg-gradient-to-br ${product.color} p-10 rounded-3xl hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl border border-green-200 overflow-hidden cursor-pointer block`}>
                 <div className="absolute top-0 right-0 w-32 h-32 bg-white/30 rounded-full -mr-16 -mt-16"></div>
                 <div className="relative z-10">
                   <div className="text-6xl mb-6 group-hover:scale-110 transition-transform">{product.icon}</div>
                   <h3 className="text-2xl font-black text-[#2C3E2C] mb-3">{product.name}</h3>
-                  <p className="text-[#4A5D4A] text-lg">{product.desc}</p>
+                  <p className="text-[#4A5D4A] text-lg mb-4">{product.desc}</p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-2xl font-bold text-[#5CB85C]">{product.price}</span>
+                    <span className="text-[#4A5D4A] group-hover:translate-x-1 transition-transform">→</span>
+                  </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
