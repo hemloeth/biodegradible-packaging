@@ -90,10 +90,10 @@ const products = {
         description: "Modern square design with natural texture"
       },
       {
-        name: "Palm Leaf Bowl",
+        name: "Palm Leaf Handbag",
         image: "/palm3.jpeg",
         price: "$13.99",
-        description: "Deep bowl perfect for soups and salads"
+        description: "Eco-friendly palm leaf handbag"
       }
     ],
     features: [
@@ -189,23 +189,21 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {product.variants.map((variant, i) => (
                   <div key={i} className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-green-200 hover:scale-105 transition-all duration-300">
-                    <div className="relative h-64">
+                    <div className="relative aspect-square bg-gray-50">
                       <Image 
                         src={variant.image} 
                         alt={variant.name}
-                        width={400}
-                        height={400}
+                        width={600}
+                        height={600}
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="p-6 space-y-4">
-                      <h3 className="text-2xl font-bold text-[#2C3E2C]">{variant.name}</h3>
-                      <p className="text-[#4A5D4A]">{variant.description}</p>
+                    <div className="p-5 space-y-3">
+                      <h3 className="text-xl font-bold text-[#2C3E2C]">{variant.name}</h3>
                       <div className="flex items-center justify-between">
-                        <span className="text-3xl font-black text-[#5CB85C]">{variant.price}</span>
-                        <span className="text-xs text-[#4A5D4A]">per pack</span>
+                        <span className="text-2xl font-black text-[#5CB85C]">{variant.price}</span>
                       </div>
-                      <button className="w-full bg-gradient-to-r from-[#5CB85C] to-[#4A9D4A] text-white px-6 py-4 rounded-xl text-lg font-bold hover:shadow-xl hover:scale-105 transition-all">
+                      <button className="w-full bg-gradient-to-r from-[#5CB85C] to-[#4A9D4A] text-white px-6 py-3 rounded-xl text-lg font-bold hover:shadow-xl hover:scale-105 transition-all">
                         Buy Now
                       </button>
                     </div>
