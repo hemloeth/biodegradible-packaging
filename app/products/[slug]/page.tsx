@@ -6,10 +6,17 @@ const products = {
     name: "Banana Leaf Packaging",
     description: "Natural, fresh, chemical-free",
     icon: "🍌",
-    price: "$12.99",
-    images: [],
+    price: "₹500",
+    images: ["/banana1.jpeg"],
     fullDescription: "Our banana leaf packaging is 100% natural and biodegradable. Perfect for food packaging with authentic eco-friendly appeal.",
-    variants: [],
+    variants: [
+      {
+        name: "Banana Leaf Container",
+        image: "/banana1.jpeg",
+        price: "₹500",
+        description: "Natural banana leaf packaging for eco-friendly food service"
+      }
+    ],
     features: [
       "100% Natural & Chemical-Free",
       "Biodegradable within 60 days",
@@ -24,20 +31,20 @@ const products = {
     name: "Bagasse Boxes",
     description: "Made from sugarcane fibers",
     icon: "📦",
-    price: "$15.99",
+    price: "₹600",
     images: ["/Bagasse1.jpeg", "/Bagasse2.jpeg"],
     fullDescription: "Made from sugarcane fiber waste, our bagasse boxes are sturdy, microwave-safe, and completely compostable.",
     variants: [
       {
         name: "Bagasse Box - Style 1",
         image: "/Bagasse1.jpeg",
-        price: "$15.99",
+        price: "₹600",
         description: "Classic rectangular bagasse container, perfect for takeout meals"
       },
       {
         name: "Bagasse Box - Style 2",
         image: "/Bagasse2.jpeg",
-        price: "$14.99",
+        price: "₹550",
         description: "Compartmented bagasse box, ideal for multi-item meals"
       }
     ],
@@ -55,10 +62,23 @@ const products = {
     name: "PLA Containers",
     description: "Plant-based, clear, strong",
     icon: "🥤",
-    price: "$18.99",
-    images: [],
+    price: "₹700",
+    images: ["/pla1.jpeg", "/pla2.png"],
     fullDescription: "Our PLA containers are made from plant-based materials like corn starch. Crystal clear, strong, and perfect for cold items.",
-    variants: [],
+    variants: [
+      {
+        name: "PLA Clear Container - Type 1",
+        image: "/pla1.jpeg",
+        price: "₹700",
+        description: "Plant-based clear container, perfect for cold beverages"
+      },
+      {
+        name: "PLA Clear Container - Type 2",
+        image: "/pla2.png",
+        price: "₹750",
+        description: "Premium PLA container with secure lid"
+      }
+    ],
     features: [
       "Made from plant-based materials",
       "Crystal clear visibility",
@@ -73,26 +93,26 @@ const products = {
     name: "Palm Leaf Plates",
     description: "Aesthetic and compostable",
     icon: "🌴",
-    price: "$14.99",
+    price: "₹550",
     images: ["/palm1.jpeg", "/palm2.jpeg", "/palm3.jpeg"],
     fullDescription: "Handcrafted from naturally fallen palm leaves, these plates are elegant, sturdy, and completely biodegradable.",
     variants: [
       {
         name: "Palm Leaf Plate - Round",
         image: "/palm1.jpeg",
-        price: "$14.99",
+        price: "₹550",
         description: "Classic round palm leaf plate for elegant dining"
       },
       {
         name: "Palm Leaf Plate - Square",
         image: "/palm2.jpeg",
-        price: "$15.99",
+        price: "₹600",
         description: "Modern square design with natural texture"
       },
       {
         name: "Palm Leaf Handbag",
         image: "/palm3.jpeg",
-        price: "$13.99",
+        price: "₹500",
         description: "Eco-friendly palm leaf handbag"
       }
     ],
@@ -110,26 +130,26 @@ const products = {
     name: "Zoot Packaging",
     description: "Modern biodegradable alternatives",
     icon: "♻️",
-    price: "$16.99",
+    price: "₹650",
     images: ["/zoot1.jpeg", "/zoot2.jpeg", "/zoot3.jpeg"],
     fullDescription: "Zoot packaging represents the future of sustainable packaging. Modern, versatile, and completely biodegradable.",
     variants: [
       {
         name: "Zoot Container - Type A",
         image: "/zoot1.jpeg",
-        price: "$16.99",
+        price: "₹650",
         description: "Premium biodegradable container with secure lid"
       },
       {
         name: "Zoot Container - Type B",
         image: "/zoot2.jpeg",
-        price: "$17.99",
+        price: "₹700",
         description: "Multi-compartment design for varied meals"
       },
       {
         name: "Zoot Container - Type C",
         image: "/zoot3.jpeg",
-        price: "$15.99",
+        price: "₹600",
         description: "Compact size perfect for snacks and sides"
       }
     ],
@@ -164,8 +184,14 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       {/* Navigation */}
       <nav className="bg-white/70 backdrop-blur-md fixed w-full z-50 border-b border-green-100">
         <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-[#5CB85C] to-[#4A9D4A] rounded-xl flex items-center justify-center text-white text-xl">🌿</div>
+          <Link href="/" className="flex items-center gap-3">
+            <Image 
+              src="/logo.png" 
+              alt="EcoPackage Logo" 
+              width={50} 
+              height={50}
+              className="w-12 h-12 object-contain rounded-full"
+            />
             <h1 className="text-2xl font-bold bg-gradient-to-r from-[#2C3E2C] to-[#4A5D4A] bg-clip-text text-transparent">EcoPackage</h1>
           </Link>
           <Link href="/#products" className="text-[#4A5D4A] hover:text-[#5CB85C] transition font-medium">
@@ -189,13 +215,13 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {product.variants.map((variant, i) => (
                   <div key={i} className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-green-200 hover:scale-105 transition-all duration-300">
-                    <div className="relative aspect-square bg-gray-50">
+                    <div className="relative aspect-square bg-white p-4">
                       <Image 
                         src={variant.image} 
                         alt={variant.name}
                         width={600}
                         height={600}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover rounded-2xl"
                       />
                     </div>
                     <div className="p-5 space-y-3">
@@ -257,7 +283,17 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       {/* Footer */}
       <footer className="bg-gradient-to-br from-[#2C3E2C] to-[#1a2a1a] text-white py-16 px-6">
         <div className="max-w-6xl mx-auto text-center">
-          <p className="text-lg mb-4">🌿 Making the planet greener, one package at a time.</p>
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <Image 
+              src="/logo.png" 
+              alt="EcoPackage Logo" 
+              width={48} 
+              height={48}
+              className="w-12 h-12 object-contain rounded-full"
+            />
+            <h3 className="text-2xl font-bold">EcoPackage</h3>
+          </div>
+          <p className="text-lg mb-4">Making the planet greener, one package at a time.</p>
           <p className="text-sm opacity-75">© 2025 EcoPackage. All rights reserved.</p>
         </div>
       </footer>
