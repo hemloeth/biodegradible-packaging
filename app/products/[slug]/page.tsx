@@ -7,7 +7,9 @@ const products = {
     description: "Natural, fresh, chemical-free",
     icon: "🍌",
     price: "$12.99",
-    fullDescription: "Our banana leaf packaging is 100% natural and biodegradable. Perfect for food packaging, these leaves are chemical-free and add an authentic, eco-friendly touch to your products.",
+    images: [],
+    fullDescription: "Our banana leaf packaging is 100% natural and biodegradable. Perfect for food packaging with authentic eco-friendly appeal.",
+    variants: [],
     features: [
       "100% Natural & Chemical-Free",
       "Biodegradable within 60 days",
@@ -23,7 +25,22 @@ const products = {
     description: "Made from sugarcane fibers",
     icon: "📦",
     price: "$15.99",
-    fullDescription: "Made from sugarcane fiber waste, our bagasse boxes are sturdy, microwave-safe, and completely compostable. An excellent alternative to plastic containers.",
+    images: ["/Bagasse1.jpeg", "/Bagasse2.jpeg"],
+    fullDescription: "Made from sugarcane fiber waste, our bagasse boxes are sturdy, microwave-safe, and completely compostable.",
+    variants: [
+      {
+        name: "Bagasse Box - Style 1",
+        image: "/Bagasse1.jpeg",
+        price: "$15.99",
+        description: "Classic rectangular bagasse container, perfect for takeout meals"
+      },
+      {
+        name: "Bagasse Box - Style 2",
+        image: "/Bagasse2.jpeg",
+        price: "$14.99",
+        description: "Compartmented bagasse box, ideal for multi-item meals"
+      }
+    ],
     features: [
       "Made from sugarcane waste",
       "Microwave & freezer safe",
@@ -39,7 +56,9 @@ const products = {
     description: "Plant-based, clear, strong",
     icon: "🥤",
     price: "$18.99",
-    fullDescription: "Our PLA containers are made from plant-based materials like corn starch. They're crystal clear, strong, and perfect for cold beverages and food items.",
+    images: [],
+    fullDescription: "Our PLA containers are made from plant-based materials like corn starch. Crystal clear, strong, and perfect for cold items.",
+    variants: [],
     features: [
       "Made from plant-based materials",
       "Crystal clear visibility",
@@ -55,7 +74,28 @@ const products = {
     description: "Aesthetic and compostable",
     icon: "🌴",
     price: "$14.99",
-    fullDescription: "Handcrafted from naturally fallen palm leaves, these plates are elegant, sturdy, and completely biodegradable. Perfect for events and daily use.",
+    images: ["/palm1.jpeg", "/palm2.jpeg", "/palm3.jpeg"],
+    fullDescription: "Handcrafted from naturally fallen palm leaves, these plates are elegant, sturdy, and completely biodegradable.",
+    variants: [
+      {
+        name: "Palm Leaf Plate - Round",
+        image: "/palm1.jpeg",
+        price: "$14.99",
+        description: "Classic round palm leaf plate for elegant dining"
+      },
+      {
+        name: "Palm Leaf Plate - Square",
+        image: "/palm2.jpeg",
+        price: "$15.99",
+        description: "Modern square design with natural texture"
+      },
+      {
+        name: "Palm Leaf Bowl",
+        image: "/palm3.jpeg",
+        price: "$13.99",
+        description: "Deep bowl perfect for soups and salads"
+      }
+    ],
     features: [
       "Made from fallen palm leaves",
       "Elegant natural appearance",
@@ -71,7 +111,28 @@ const products = {
     description: "Modern biodegradable alternatives",
     icon: "♻️",
     price: "$16.99",
-    fullDescription: "Zoot packaging represents the future of sustainable packaging. Modern, versatile, and completely biodegradable - perfect for any business need.",
+    images: ["/zoot1.jpeg", "/zoot2.jpeg", "/zoot3.jpeg"],
+    fullDescription: "Zoot packaging represents the future of sustainable packaging. Modern, versatile, and completely biodegradable.",
+    variants: [
+      {
+        name: "Zoot Container - Type A",
+        image: "/zoot1.jpeg",
+        price: "$16.99",
+        description: "Premium biodegradable container with secure lid"
+      },
+      {
+        name: "Zoot Container - Type B",
+        image: "/zoot2.jpeg",
+        price: "$17.99",
+        description: "Multi-compartment design for varied meals"
+      },
+      {
+        name: "Zoot Container - Type C",
+        image: "/zoot3.jpeg",
+        price: "$15.99",
+        description: "Compact size perfect for snacks and sides"
+      }
+    ],
     features: [
       "Modern design aesthetic",
       "Versatile applications",
@@ -116,28 +177,60 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       {/* Product Details */}
       <section className="pt-32 pb-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            {/* Product Image/Icon */}
-            <div className={`bg-gradient-to-br ${product.color} rounded-3xl p-16 shadow-2xl border border-green-200 flex items-center justify-center sticky top-32`}>
-              <div className="text-[200px] leading-none">{product.icon}</div>
+          <div className="space-y-12">
+            {/* Product Overview */}
+            <div className="text-center">
+              <h1 className="text-5xl font-black text-[#2C3E2C] mb-4">{product.name}</h1>
+              <p className="text-xl text-[#4A5D4A]">{product.fullDescription}</p>
             </div>
 
-            {/* Product Info */}
-            <div className="space-y-8">
-              <div>
-                <h1 className="text-5xl font-black text-[#2C3E2C] mb-4">{product.name}</h1>
-                <p className="text-2xl text-[#4A5D4A] mb-6">{product.description}</p>
-                <div className="text-4xl font-black text-[#5CB85C]">{product.price}</div>
-                <p className="text-sm text-[#4A5D4A] mt-2">per pack of 50 units</p>
+            {/* Product Variants */}
+            {product.variants && product.variants.length > 0 ? (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {product.variants.map((variant, i) => (
+                  <div key={i} className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-green-200 hover:scale-105 transition-all duration-300">
+                    <div className="relative h-64">
+                      <Image 
+                        src={variant.image} 
+                        alt={variant.name}
+                        width={400}
+                        height={400}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-6 space-y-4">
+                      <h3 className="text-2xl font-bold text-[#2C3E2C]">{variant.name}</h3>
+                      <p className="text-[#4A5D4A]">{variant.description}</p>
+                      <div className="flex items-center justify-between">
+                        <span className="text-3xl font-black text-[#5CB85C]">{variant.price}</span>
+                        <span className="text-xs text-[#4A5D4A]">per pack</span>
+                      </div>
+                      <button className="w-full bg-gradient-to-r from-[#5CB85C] to-[#4A9D4A] text-white px-6 py-4 rounded-xl text-lg font-bold hover:shadow-xl hover:scale-105 transition-all">
+                        Buy Now
+                      </button>
+                    </div>
+                  </div>
+                ))}
               </div>
-
-              <div className="bg-white/80 backdrop-blur rounded-2xl p-6 shadow-lg">
-                <h3 className="text-xl font-bold text-[#2C3E2C] mb-4">About This Product</h3>
-                <p className="text-[#4A5D4A] leading-relaxed">{product.fullDescription}</p>
+            ) : (
+              <div className="grid md:grid-cols-2 gap-12 items-start">
+                <div className={`bg-gradient-to-br ${product.color} rounded-3xl p-16 shadow-2xl border border-green-200 flex items-center justify-center sticky top-32`}>
+                  <div className="text-[200px] leading-none">{product.icon}</div>
+                </div>
+                <div className="space-y-6">
+                  <div className="text-4xl font-black text-[#5CB85C]">{product.price}</div>
+                  <p className="text-sm text-[#4A5D4A]">per pack of 50 units</p>
+                  <button className="w-full bg-gradient-to-r from-[#5CB85C] to-[#4A9D4A] text-white px-8 py-5 rounded-2xl text-xl font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                    Buy Now
+                  </button>
+                </div>
               </div>
+            )}
 
-              <div className="bg-white/80 backdrop-blur rounded-2xl p-6 shadow-lg">
-                <h3 className="text-xl font-bold text-[#2C3E2C] mb-4">Key Features</h3>
+            {/* Features & Sizes */}
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-white/80 backdrop-blur rounded-2xl p-8 shadow-lg">
+                <h3 className="text-2xl font-bold text-[#2C3E2C] mb-6">Key Features</h3>
                 <ul className="space-y-3">
                   {product.features.map((feature, i) => (
                     <li key={i} className="flex items-start gap-3">
@@ -148,24 +241,15 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                 </ul>
               </div>
 
-              <div className="bg-white/80 backdrop-blur rounded-2xl p-6 shadow-lg">
-                <h3 className="text-xl font-bold text-[#2C3E2C] mb-4">Available Sizes</h3>
+              <div className="bg-white/80 backdrop-blur rounded-2xl p-8 shadow-lg">
+                <h3 className="text-2xl font-bold text-[#2C3E2C] mb-6">Available Sizes</h3>
                 <div className="flex flex-wrap gap-3">
                   {product.sizes.map((size, i) => (
-                    <button key={i} className="px-6 py-3 bg-[#E8F5E9] hover:bg-[#5CB85C] hover:text-white rounded-xl font-semibold transition-all border border-green-200">
+                    <div key={i} className="px-6 py-3 bg-[#E8F5E9] rounded-xl font-semibold border border-green-200">
                       {size}
-                    </button>
+                    </div>
                   ))}
                 </div>
-              </div>
-
-              <div className="flex gap-4">
-                <button className="flex-1 bg-gradient-to-r from-[#5CB85C] to-[#4A9D4A] text-white px-8 py-5 rounded-2xl text-xl font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300">
-                  Add to Cart
-                </button>
-                <button className="px-8 py-5 bg-white/90 backdrop-blur text-[#5CB85C] rounded-2xl text-xl font-bold hover:bg-white hover:shadow-xl transition-all border-2 border-[#5CB85C]/20">
-                  Contact Us
-                </button>
               </div>
             </div>
           </div>
