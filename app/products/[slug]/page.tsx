@@ -6,14 +6,14 @@ const products = {
     name: "Banana Leaf Packaging",
     description: "Natural, fresh, chemical-free",
     icon: "🍌",
-    price: "₹500",
+    price: "₹25",
     images: ["/banana1.jpeg"],
     fullDescription: "Our banana leaf packaging is 100% natural and biodegradable. Perfect for food packaging with authentic eco-friendly appeal.",
     variants: [
       {
         name: "Banana Leaf Container",
         image: "/banana1.jpeg",
-        price: "₹500",
+        price: "₹25",
         description: "Natural banana leaf packaging for eco-friendly food service"
       }
     ],
@@ -31,20 +31,20 @@ const products = {
     name: "Bagasse Boxes",
     description: "Made from sugarcane fibers",
     icon: "📦",
-    price: "₹600",
+    price: "₹30",
     images: ["/Bagasse1.jpeg", "/Bagasse2.jpeg"],
     fullDescription: "Made from sugarcane fiber waste, our bagasse boxes are sturdy, microwave-safe, and completely compostable.",
     variants: [
       {
         name: "Bagasse Box - Style 1",
         image: "/Bagasse1.jpeg",
-        price: "₹600",
+        price: "₹30",
         description: "Classic rectangular bagasse container, perfect for takeout meals"
       },
       {
         name: "Bagasse Box - Style 2",
         image: "/Bagasse2.jpeg",
-        price: "₹550",
+        price: "₹28",
         description: "Compartmented bagasse box, ideal for multi-item meals"
       }
     ],
@@ -62,20 +62,20 @@ const products = {
     name: "PLA Containers",
     description: "Plant-based, clear, strong",
     icon: "🥤",
-    price: "₹700",
+    price: "₹35",
     images: ["/pla1.jpeg", "/pla2.png"],
     fullDescription: "Our PLA containers are made from plant-based materials like corn starch. Crystal clear, strong, and perfect for cold items.",
     variants: [
       {
         name: "PLA Clear Container - Type 1",
         image: "/pla1.jpeg",
-        price: "₹700",
+        price: "₹35",
         description: "Plant-based clear container, perfect for cold beverages"
       },
       {
         name: "PLA Clear Container - Type 2",
         image: "/pla2.png",
-        price: "₹750",
+        price: "₹38",
         description: "Premium PLA container with secure lid"
       }
     ],
@@ -93,26 +93,26 @@ const products = {
     name: "Palm Leaf Plates",
     description: "Aesthetic and compostable",
     icon: "🌴",
-    price: "₹550",
+    price: "₹28",
     images: ["/palm1.jpeg", "/palm2.jpeg", "/palm3.jpeg"],
     fullDescription: "Handcrafted from naturally fallen palm leaves, these plates are elegant, sturdy, and completely biodegradable.",
     variants: [
       {
         name: "Palm Leaf Plate - Round",
         image: "/palm1.jpeg",
-        price: "₹550",
+        price: "₹28",
         description: "Classic round palm leaf plate for elegant dining"
       },
       {
         name: "Palm Leaf Plate - Square",
         image: "/palm2.jpeg",
-        price: "₹600",
+        price: "₹30",
         description: "Modern square design with natural texture"
       },
       {
         name: "Palm Leaf Handbag",
         image: "/palm3.jpeg",
-        price: "₹500",
+        price: "₹25",
         description: "Eco-friendly palm leaf handbag"
       }
     ],
@@ -130,26 +130,26 @@ const products = {
     name: "Zoot Packaging",
     description: "Modern biodegradable alternatives",
     icon: "♻️",
-    price: "₹650",
+    price: "₹32",
     images: ["/zoot1.jpeg", "/zoot2.jpeg", "/zoot3.jpeg"],
     fullDescription: "Zoot packaging represents the future of sustainable packaging. Modern, versatile, and completely biodegradable.",
     variants: [
       {
         name: "Zoot Container - Type A",
         image: "/zoot1.jpeg",
-        price: "₹650",
+        price: "₹32",
         description: "Premium biodegradable container with secure lid"
       },
       {
         name: "Zoot Container - Type B",
         image: "/zoot2.jpeg",
-        price: "₹700",
+        price: "₹35",
         description: "Multi-compartment design for varied meals"
       },
       {
         name: "Zoot Container - Type C",
         image: "/zoot3.jpeg",
-        price: "₹600",
+        price: "₹30",
         description: "Compact size perfect for snacks and sides"
       }
     ],

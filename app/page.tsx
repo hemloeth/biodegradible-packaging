@@ -223,11 +223,11 @@ export default function Home() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { name: 'Banana Leaf Packaging', desc: 'Natural, fresh, chemical-free', icon: '🍌', color: 'from-yellow-100 to-green-100', slug: 'banana-leaf', price: '₹500' },
-              { name: 'Bagasse Boxes', desc: 'Made from sugarcane fibers', icon: '📦', color: 'from-amber-100 to-green-100', slug: 'bagasse-boxes', price: '₹600' },
-              { name: 'PLA Containers', desc: 'Plant-based, clear, strong', icon: '🥤', color: 'from-blue-100 to-green-100', slug: 'pla-containers', price: '₹700' },
-              { name: 'Palm Leaf Plates', desc: 'Aesthetic and compostable', icon: '🌴', color: 'from-emerald-100 to-green-100', slug: 'palm-leaf-plates', price: '₹550' },
-              { name: 'Zoot Packaging', desc: 'Modern biodegradable alternatives', icon: '♻️', color: 'from-teal-100 to-green-100', slug: 'zoot-packaging', price: '₹650' }
+              { name: 'Banana Leaf Packaging', desc: 'Natural, fresh, chemical-free', icon: '🍌', color: 'from-yellow-100 to-green-100', slug: 'banana-leaf', price: '₹25' },
+              { name: 'Bagasse Boxes', desc: 'Made from sugarcane fibers', icon: '📦', color: 'from-amber-100 to-green-100', slug: 'bagasse-boxes', price: '₹30' },
+              { name: 'PLA Containers', desc: 'Plant-based, clear, strong', icon: '🥤', color: 'from-blue-100 to-green-100', slug: 'pla-containers', price: '₹35' },
+              { name: 'Palm Leaf Plates', desc: 'Aesthetic and compostable', icon: '🌴', color: 'from-emerald-100 to-green-100', slug: 'palm-leaf-plates', price: '₹28' },
+              { name: 'Zoot Packaging', desc: 'Modern biodegradable alternatives', icon: '♻️', color: 'from-teal-100 to-green-100', slug: 'zoot-packaging', price: '₹32' }
             ].map((product, i) => (
               <motion.a 
                 key={i} 
